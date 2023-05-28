@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/illustration_main_background">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_view_back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:padding="8dp"
+        android:soundEffectsEnabled="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <com.sinaseyfi.advancedcardview.AdvancedCardView
+        android:id="@+id/card_view_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:background_ColorType="gradient_linear"
+        app:background_Gradient_Color0="@color/pink1"
+        app:background_Gradient_ColorEnd="@color/pink2"
+        app:background_Type="fill_stroke"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_view_back"
+        app:stroke_ColorType="gradient_linear"
+        app:stroke_Gradient_Color0="@color/gold"
+        app:stroke_Gradient_Color1="@color/white_86"
+        app:stroke_Gradient_ColorEnd="@color/gold"
+        app:stroke_Width="2dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/moul"
+                android:gravity="center"
+                android:lines="1"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="Balance 123" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                app:dividerColor="@color/gold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_win"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/moul"
+                android:gravity="center"
+                android:lines="1"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="Win 123" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_image_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_balance"
+        app:srcCompat="@drawable/illustration_girl_1_centered" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_image_horizontal"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <com.sinaseyfi.advancedcardview.AdvancedCardView
+        android:id="@+id/card_view_bet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        app:background_ColorType="gradient_linear"
+        app:background_Gradient_Color0="@color/gold"
+        app:background_Gradient_Color1="@color/white_86"
+        app:background_Gradient_ColorEnd="@color/gold"
+        app:background_Type="fill_stroke"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_image_horizontal"
+        app:stroke_ColorType="gradient_linear"
+        app:stroke_Gradient_Color0="@color/pink1"
+        app:stroke_Gradient_ColorEnd="@color/pink2"
+        app:stroke_Width="5dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewMinus"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_vertical"
+                android:soundEffectsEnabled="true"
+                app:srcCompat="@drawable/ic_minus_game1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_bet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/moul"
+                android:gravity="center"
+                android:lines="1"
+                android:textColor="@color/pink2"
+                android:textSize="24sp"
+                tools:text="347290" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewPlus"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_vertical"
+                android:padding="4dp"
+                android:soundEffectsEnabled="true"
+                app:srcCompat="@drawable/ic_plus_game1" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_button_gradient_pink"
+        android:fontFamily="@font/moul"
+        android:paddingHorizontal="40dp"
+        android:text="@string/play"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_bet" />
+
+    <com.fairyfo.frenzy.ui.view.SlotView
+        android:id="@+id/slot_view_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_slot_game_1"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="0.389"
+        app:layout_constraintEnd_toStartOf="@id/slot_view_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_play" />
+
+    <com.fairyfo.frenzy.ui.view.SlotView
+        android:id="@+id/slot_view_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_slot_game_1"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="0.389"
+        app:layout_constraintEnd_toStartOf="@id/slot_view_3"
+        app:layout_constraintStart_toEndOf="@id/slot_view_1"
+        app:layout_constraintTop_toBottomOf="@id/button_play" />
+
+    <com.fairyfo.frenzy.ui.view.SlotView
+        android:id="@+id/slot_view_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_slot_game_1"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="0.389"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/slot_view_2"
+        app:layout_constraintTop_toBottomOf="@id/button_play" />
+</androidx.constraintlayout.widget.ConstraintLayout>

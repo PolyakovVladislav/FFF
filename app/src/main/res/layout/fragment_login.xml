@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/illustration_main_background">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/card_view"
+        app:layout_constraintEnd_toEndOf="@+id/card_view"
+        app:layout_constraintStart_toStartOf="@id/card_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/illustration_girl_1_centered" />
+
+    <com.sinaseyfi.advancedcardview.AdvancedCardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:background_ColorType="gradient_linear"
+        app:background_Gradient_Color0="@color/black_80"
+        app:background_Gradient_ColorEnd="@color/black_44"
+        app:background_Type="fill_stroke"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stroke_ColorType="gradient_linear"
+        app:stroke_Gradient_Color0="@color/gold"
+        app:stroke_Gradient_Color1="@color/white_86"
+        app:stroke_Gradient_ColorEnd="@color/gold"
+        app:stroke_Width="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/moul"
+                android:gravity="center"
+                android:lineSpacingMultiplier="0.65"
+                android:text="@string/sign_up_to_save_your_results"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_view_radio_email"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/text_view_title"
+                app:layout_constraintTop_toBottomOf="@id/text_view_title"
+                app:srcCompat="@drawable/ic_radio_unchecked" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/moul"
+                android:paddingStart="20dp"
+                android:text="@string/email"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/image_view_radio_email"
+                app:layout_constraintStart_toEndOf="@id/image_view_radio_email"
+                app:layout_constraintTop_toTopOf="@id/image_view_radio_email" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_view_radio_phone"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/image_view_radio_email"
+                app:layout_constraintTop_toBottomOf="@id/image_view_radio_email"
+                app:srcCompat="@drawable/ic_radio_unchecked" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/moul"
+                android:paddingStart="20dp"
+                android:text="@string/phone"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/image_view_radio_phone"
+                app:layout_constraintStart_toEndOf="@id/image_view_radio_phone"
+                app:layout_constraintTop_toTopOf="@id/image_view_radio_phone" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_view_radio_anonymous"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/image_view_radio_phone"
+                app:layout_constraintTop_toBottomOf="@id/image_view_radio_phone"
+                app:srcCompat="@drawable/ic_radio_checked" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_anonymous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/moul"
+                android:paddingStart="20dp"
+                android:text="@string/anonymous"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/image_view_radio_anonymous"
+                app:layout_constraintStart_toEndOf="@id/image_view_radio_anonymous"
+                app:layout_constraintTop_toTopOf="@id/image_view_radio_anonymous" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_continue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_button_gradient_pink"
+                android:fontFamily="@font/moul"
+                android:text="@string/continue_not_java"
+                app:backgroundTint="@null"
+                app:layout_constraintTop_toBottomOf="@id/image_view_radio_anonymous" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,168 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.LoginFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_phoneLoginFragment"
+            app:destination="@id/phoneLoginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_loginFragment_to_emailLoginFragment"
+            app:destination="@id/emailLoginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/phoneLoginFragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.PhoneLoginFragment"
+        android:label="PhoneLoginFragment"
+        tools:layout="@layout/fragment_phone_login">
+        <action
+            android:id="@+id/action_phoneLoginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_gamesListFragment"
+            app:destination="@id/gamesListFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/emailLoginFragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.EmailLoginFragment"
+        android:label="EmailLoginFragment"
+        tools:layout="@layout/fragment_email_login">
+        <action
+            android:id="@+id/action_emailLoginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamesListFragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.GamesListFragment"
+        android:label="GamesListFragment"
+        tools:layout="@layout/fragment_games_list">
+        <action
+            android:id="@+id/action_gamesListFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_gamesListFragment_to_game1Fragment"
+            app:destination="@id/game1Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_gamesListFragment_to_game2Fragment"
+            app:destination="@id/game2Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_gamesListFragment_to_bonusGameFragment"
+            app:destination="@id/bonusGameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/game1Fragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.game1.Game1Fragment"
+        android:label="Game1Fragment"
+        tools:layout="@layout/fragment_game_1" >
+        <action
+            android:id="@+id/action_game1Fragment_to_gamesListFragment"
+            app:destination="@id/gamesListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/gamesListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/game2Fragment"
+        tools:layout="@layout/fragment_game_2"
+        android:name="com.fairyfo.frenzy.ui.fragments.game2.Game2Fragment"
+        android:label="Game2Fragment">
+        <action
+            android:id="@+id/action_game2Fragment_to_gamesListFragment"
+            app:destination="@id/gamesListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/gamesListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/bonusGameFragment"
+        android:name="com.fairyfo.frenzy.ui.fragments.bonusGame.BonusGameFragment"
+        tools:layout="@layout/fragment_bonus_game"
+        android:label="BonusGameFragment" >
+        <action
+            android:id="@+id/action_bonusGameFragment_to_gamesListFragment"
+            app:destination="@id/gamesListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/gamesListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

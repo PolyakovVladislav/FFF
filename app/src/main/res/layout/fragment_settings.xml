@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/illustration_main_background">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_view_back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <com.sinaseyfi.advancedcardview.AdvancedCardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        app:background_ColorType="gradient_linear"
+        app:background_Gradient_Color0="@color/black_80"
+        app:background_Gradient_ColorEnd="@color/black_44"
+        app:background_Type="fill_stroke"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stroke_ColorType="gradient_linear"
+        app:stroke_Gradient_Color0="@color/gold"
+        app:stroke_Gradient_Color1="@color/white_86"
+        app:stroke_Gradient_ColorEnd="@color/gold"
+        app:stroke_Width="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/moul"
+                android:gravity="center"
+                android:lineSpacingMultiplier="0.65"
+                android:text="@string/music"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.fairyfo.frenzy.ui.view.FrenzyProgressBar
+                android:id="@+id/progress_bar_music"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_music" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_view_vibration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/moul"
+                android:gravity="center"
+                android:lineSpacingMultiplier="0.65"
+                android:text="@string/vibration"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar_music" />
+
+            <com.fairyfo.frenzy.ui.view.FrenzyProgressBar
+                android:id="@+id/progress_bar_vibration"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_vibration" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+</FrameLayout>

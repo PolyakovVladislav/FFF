@@ -1,0 +1,94 @@
+plugins {
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'io.michaelrocks.paranoid'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion 33
+
+    paranoid {
+        enabled true
+        obfuscationSeed 77610223
+    }
+
+    defaultConfig {
+        applicationId "com.fairyfo.frenzy"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        setProperty("archivesBaseName", "$applicationId-$versionName")
+    }
+
+    signingConfigs {
+        release {
+            keyAlias "{{keyAlias}}"
+            keyPassword "{{keyPassword}}"
+            storePassword "{{keyPassword}}"
+            storeFile file('./{{keyFileName}}.jks')
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures{
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.20'
+
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    implementation 'com.google.android.material:material:1.9.0'
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    implementation 'com.github.veeyaarVR:SuperGradientTextView:1.1'
+
+    implementation 'com.github.sina-seyfi:AdvancedCardView:1.0.1'
+
+    implementation 'com.dagang:gradient-button:1.0.1'
+
+    implementation 'com.github.ibrahimsn98:PhoneNumberKit:2.0.6'
+}
