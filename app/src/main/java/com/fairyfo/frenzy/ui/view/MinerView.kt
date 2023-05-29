@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.isInvisible
 import androidx.core.view.setPadding
 import com.fairyfo.frenzy.R
+import com.fairyfo.frenzy.ui.extensions.alphaAnimator
 import com.fairyfo.frenzy.ui.models.Miner
 import com.fairyfo.frenzy.ui.models.MinerItem
 
@@ -87,6 +88,9 @@ class MinerView(
                 )
                 val sizeMultiplier = 0.9f
                 itemImageView.isInvisible = minerItem.discovered.not()
+                if (minerItem.animateDiscover) {
+                    itemImageView.alphaAnimator(200)
+                }
                 when (minerItem.itemType) {
                     MinerItem.ItemType.Gold -> {
                         itemImageView.layoutParams = LayoutParams(

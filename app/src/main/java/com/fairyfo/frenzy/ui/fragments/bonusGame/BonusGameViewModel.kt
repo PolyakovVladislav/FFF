@@ -57,19 +57,27 @@ class BonusGameViewModel : ViewModel() {
         if (_game.value?.gameState == Miner.GameState.Finished) {
             return
         }
+        val miner = _game.value
+        miner?.matrix?.forEach { row ->
+            row.forEach { item ->
+                item.animateDiscover = false
+            }
+        }
         when (minerItem.itemType) {
             MinerItem.ItemType.Gold -> {
                 if (minerItem.discovered.not()) {
-                    _game.value = _game.value?.apply {
+                    _game.value = miner?.apply {
                         matrix[minerItem.x][minerItem.y].discovered = true
+                        matrix[minerItem.x][minerItem.y].animateDiscover = true
                     }
                 }
             }
 
             MinerItem.ItemType.Bomb -> {
                 if (minerItem.discovered.not()) {
-                    _game.value = _game.value?.apply {
+                    _game.value = miner?.apply {
                         matrix[minerItem.x][minerItem.y].discovered = true
+                        matrix[minerItem.x][minerItem.y].animateDiscover = true
                         gameState = Miner.GameState.Finished
                     }
                     _win.value = 0
@@ -92,9 +100,9 @@ class BonusGameViewModel : ViewModel() {
         val matrix = Array(rows) { i ->
             Array(columns) { j ->
                 if (bombsPositions.any { it.first == i && it.second == j }) {
-                    MinerItem(false, MinerItem.ItemType.Bomb, i, j)
+                    MinerItem(false, false, MinerItem.ItemType.Bomb, i, j)
                 } else {
-                    MinerItem(false, MinerItem.ItemType.Gold, i, j)
+                    MinerItem(false, false, MinerItem.ItemType.Gold, i, j)
                 }
             }
         }
