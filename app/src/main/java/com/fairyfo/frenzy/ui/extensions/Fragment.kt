@@ -25,12 +25,12 @@ internal inline fun Fragment.addOnBackPressedCallback(
 }
 
 fun Fragment.playWinSound() {
-    val assetManager = requireActivity().assets
-    val mediaPlayer = MediaPlayer()
-    val volume = SharedPrefs.getInstance(requireActivity()).soundLevel / 100f
-    mediaPlayer.setVolume(volume, volume)
-
     try {
+        val assetManager = requireActivity().assets
+        val mediaPlayer = MediaPlayer()
+        val volume = SharedPrefs.getInstance(requireActivity()).soundLevel / 100f
+        mediaPlayer.setVolume(volume, volume)
+
         val afd = assetManager.openFd("win.wav")
         mediaPlayer.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
         mediaPlayer.isLooping = false
@@ -43,17 +43,21 @@ fun Fragment.playWinSound() {
 
 @Suppress("DEPRECATION")
 fun Fragment.vibrate(duration: Long = 150L) {
-    val v = ContextCompat.getSystemService(requireContext(), Vibrator::class.java)
-    if (v?.hasVibrator() == true) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(
-                VibrationEffect.createOneShot(
-                    duration,
-                    (255 * SharedPrefs.getInstance(requireActivity()).vibratingLevel / 100f).toInt(),
-                ),
-            )
-        } else {
-            v.vibrate((duration * SharedPrefs.getInstance(requireActivity()).vibratingLevel / 100f).toLong())
+    try {
+        val v = ContextCompat.getSystemService(requireContext(), Vibrator::class.java)
+        if (v?.hasVibrator() == true) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                v.vibrate(
+                    VibrationEffect.createOneShot(
+                        duration,
+                        (255 * SharedPrefs.getInstance(requireActivity()).vibratingLevel / 100f).toInt(),
+                    ),
+                )
+            } else {
+                v.vibrate((duration * SharedPrefs.getInstance(requireActivity()).vibratingLevel / 100f).toLong())
+            }
         }
+    } catch (e: Exception) {
+        e.printStackTrace()
     }
 }
