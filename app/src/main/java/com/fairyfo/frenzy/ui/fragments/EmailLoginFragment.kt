@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.fairyfo.frenzy.R
 import com.fairyfo.frenzy.databinding.FragmentEmailLoginBinding
 import com.fairyfo.frenzy.ui.core.ViewBindingFragment
+import com.fairyfo.frenzy.ui.extensions.addOnBackPressedCallback
 import com.fairyfo.frenzy.ui.extensions.navigateSafe
 import com.fairyfo.frenzy.ui.extensions.setTextGradient
 import com.fairyfo.frenzy.utils.SharedPrefs
@@ -32,6 +33,11 @@ class EmailLoginFragment : ViewBindingFragment<FragmentEmailLoginBinding>(
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
+            }
+            addOnBackPressedCallback {
+                findNavController().navigateSafe(
+                    EmailLoginFragmentDirections.actionEmailLoginFragmentToLoginFragment()
+                )
             }
         }
     }

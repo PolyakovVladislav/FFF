@@ -41,6 +41,14 @@
             app:popExitAnim="@anim/slide_out_left"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_phoneLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -63,8 +71,8 @@
         <action
             android:id="@+id/action_mainFragment_to_gamesListFragment"
             app:destination="@id/gamesListFragment"
-            app:exitAnim="@anim/slide_out_left"
-            app:enterAnim="@anim/slide_in_right"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/emailLoginFragment"
@@ -77,6 +85,14 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_emailLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -127,7 +143,7 @@
         android:id="@+id/game1Fragment"
         android:name="com.fairyfo.frenzy.ui.fragments.game1.Game1Fragment"
         android:label="Game1Fragment"
-        tools:layout="@layout/fragment_game_1" >
+        tools:layout="@layout/fragment_game_1">
         <action
             android:id="@+id/action_game1Fragment_to_gamesListFragment"
             app:destination="@id/gamesListFragment"
@@ -139,9 +155,9 @@
     </fragment>
     <fragment
         android:id="@+id/game2Fragment"
-        tools:layout="@layout/fragment_game_2"
         android:name="com.fairyfo.frenzy.ui.fragments.game2.Game2Fragment"
-        android:label="Game2Fragment">
+        android:label="Game2Fragment"
+        tools:layout="@layout/fragment_game_2">
         <action
             android:id="@+id/action_game2Fragment_to_gamesListFragment"
             app:destination="@id/gamesListFragment"
@@ -154,8 +170,8 @@
     <fragment
         android:id="@+id/bonusGameFragment"
         android:name="com.fairyfo.frenzy.ui.fragments.bonusGame.BonusGameFragment"
-        tools:layout="@layout/fragment_bonus_game"
-        android:label="BonusGameFragment" >
+        android:label="BonusGameFragment"
+        tools:layout="@layout/fragment_bonus_game">
         <action
             android:id="@+id/action_bonusGameFragment_to_gamesListFragment"
             app:destination="@id/gamesListFragment"

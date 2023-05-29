@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.fairyfo.frenzy.R
 import com.fairyfo.frenzy.databinding.FragmentPhoneLoginBinding
 import com.fairyfo.frenzy.ui.core.ViewBindingFragment
+import com.fairyfo.frenzy.ui.extensions.addOnBackPressedCallback
 import com.fairyfo.frenzy.ui.extensions.navigateSafe
 import com.fairyfo.frenzy.ui.extensions.setTextGradient
 import com.fairyfo.frenzy.utils.SharedPrefs
@@ -46,6 +47,12 @@ class PhoneLoginFragment : ViewBindingFragment<FragmentPhoneLoginBinding>(
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
+            }
+
+            addOnBackPressedCallback {
+                findNavController().navigateSafe(
+                    PhoneLoginFragmentDirections.actionPhoneLoginFragmentToLoginFragment()
+                )
             }
         }
     }
