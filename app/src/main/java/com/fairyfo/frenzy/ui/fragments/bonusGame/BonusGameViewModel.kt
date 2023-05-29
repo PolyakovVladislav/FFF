@@ -26,10 +26,6 @@ class BonusGameViewModel : ViewModel() {
 
     private var currentBet = 0L
 
-    init {
-        generateMatrix()
-    }
-
     fun play(bet: Long, balance: Long) {
         val collected = if (_game.value?.gameState == Miner.GameState.Finished) {
             0

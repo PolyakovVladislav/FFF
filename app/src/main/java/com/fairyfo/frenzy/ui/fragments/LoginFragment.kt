@@ -3,6 +3,9 @@ package com.fairyfo.frenzy.ui.fragments
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.fairyfo.frenzy.R
 import com.fairyfo.frenzy.databinding.FragmentLoginBinding
@@ -10,12 +13,11 @@ import com.fairyfo.frenzy.ui.core.ViewBindingFragment
 import com.fairyfo.frenzy.ui.extensions.navigateSafe
 import com.fairyfo.frenzy.ui.extensions.setTextGradient
 import com.fairyfo.frenzy.utils.SharedPrefs
+import kotlinx.coroutines.launch
 
 class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(
     FragmentLoginBinding::inflate,
 ) {
-
-    private var option = 2
 
     private val prefs by lazy {
         SharedPrefs.getInstance(requireActivity())
@@ -24,12 +26,15 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonContinue.setTextGradient(R.color.gold, R.color.white_86, R.color.gold)
-        option = prefs.signInOption
         setListeners()
-        when (option) {
-            0 -> onPhoneClicked()
-            1 -> onMailClicked()
-            2 -> onAnonymousClicked()
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                when (prefs.signInOption) {
+                    0 -> onPhoneClicked()
+                    1 -> onMailClicked()
+                    2 -> onAnonymousClicked()
+                }
+            }
         }
     }
 
@@ -37,20 +42,22 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(
         with(binding) {
             buttonContinue.setOnClickListener {
                 val controller = findNavController()
-                when (option) {
+                when (prefs.signInOption) {
                     0 -> {
                         controller.navigateSafe(
                             LoginFragmentDirections.actionLoginFragmentToPhoneLoginFragment(),
                         )
                     }
+
                     1 -> {
                         controller.navigateSafe(
-                            LoginFragmentDirections.actionLoginFragmentToEmailLoginFragment()
+                            LoginFragmentDirections.actionLoginFragmentToEmailLoginFragment(),
                         )
                     }
+
                     2 -> {
                         controller.navigateSafe(
-                            LoginFragmentDirections.actionLoginFragmentToMainFragment()
+                            LoginFragmentDirections.actionLoginFragmentToMainFragment(),
                         )
                     }
                 }
@@ -68,24 +75,21 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(
         binding.imageViewRadioPhone.setUnChecked()
         binding.imageViewRadioEmail.setChecked()
         binding.imageViewRadioAnonymous.setUnChecked()
-        option = 1
-        prefs.signInOption = option
+        prefs.signInOption = 1
     }
 
     private fun onPhoneClicked(view: View? = null) {
         binding.imageViewRadioEmail.setUnChecked()
         binding.imageViewRadioAnonymous.setUnChecked()
         binding.imageViewRadioPhone.setChecked()
-        option = 0
-        prefs.signInOption = option
+        prefs.signInOption = 0
     }
 
     private fun onAnonymousClicked(view: View? = null) {
         binding.imageViewRadioPhone.setUnChecked()
         binding.imageViewRadioEmail.setUnChecked()
         binding.imageViewRadioAnonymous.setChecked()
-        option = 2
-        prefs.signInOption = option
+        prefs.signInOption = 2
     }
 
     private fun ImageView.setChecked() {
