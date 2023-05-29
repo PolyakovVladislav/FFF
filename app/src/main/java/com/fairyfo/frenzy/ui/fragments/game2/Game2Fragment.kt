@@ -67,7 +67,7 @@ class Game2Fragment : ViewBindingFragment<FragmentGame2Binding>(
                 textViewBet.text = bet.toString()
             }
             imageViewPlus.setOnClickListener {
-                var bet = prefs.lastBetGame2 + 100L
+                var bet = textViewBet.text.toString().toLong() + 100L
                 if (bet > prefs.balance) bet = prefs.balance
                 prefs.lastBetGame2 = bet
                 textViewBet.text = bet.toString()
