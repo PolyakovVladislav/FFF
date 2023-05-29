@@ -1,3 +1,7 @@
 /app/build/generated/source/
 /app/build/
 /.gradle/
+/.gradle/7.6.1/
+/.gradle/buildOutputCleanup/
+/.gradle/checksums/
+/.gradle/configuration-cache/
