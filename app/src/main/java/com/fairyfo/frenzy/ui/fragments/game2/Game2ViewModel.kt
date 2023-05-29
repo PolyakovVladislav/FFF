@@ -23,6 +23,22 @@ class Game2ViewModel : ViewModel() {
             R.drawable.ic_watermalon2,
             R.drawable.ic_grape2,
         )
+        private val combinations = mutableListOf<IntArray>().apply {
+            for (i in 0..5) {
+                add(intArrayOf(values[0], values[0], values[0]))
+                add(intArrayOf(values[4], values[4], values[4]))
+            }
+            for (i in 0..3) {
+                add(intArrayOf(values[1], values[1], values[1]))
+                add(intArrayOf(values[3], values[3], values[3]))
+            }
+            for (i in 0..1) {
+                add(intArrayOf(values[2], values[2], values[2]))
+            }
+            for (i in 0..100) {
+                add(intArrayOf(values.random(), values.random(), values.random()))
+            }
+        }
     }
 
     private val _slot1LiveData = MutableLiveData<List<Slot>>()
@@ -92,11 +108,11 @@ class Game2ViewModel : ViewModel() {
 
         if (combination.distinct().size == 1) { // Комбинация из 1го элемента
             return when (combination.first()) {
-                values[0] -> 25f
-                values[1] -> 32f
-                values[2] -> 40f
-                values[3] -> 32f
-                values[4] -> 25f
+                values[0] -> 3f
+                values[1] -> 6f
+                values[2] -> 9f
+                values[3] -> 6f
+                values[4] -> 3f
                 else -> 0f
             }
         }
@@ -147,6 +163,7 @@ class Game2ViewModel : ViewModel() {
                 _slot3LiveData.value?.filter { it.relativePosition in 0f..1f } ?: emptyList(),
             )
         }
+        val combination = combinations.random()
         val constOffset = 1 / 6f
         for (i in slotList1.size..48) {
             slotList1.add(
@@ -173,20 +190,23 @@ class Game2ViewModel : ViewModel() {
         }
         for (i in 0..1) {
             slotList1.add(
-                generateLastSlot(
+                Slot(
                     slotList1.last().id + 1,
+                    combination[0],
                     slotList1.last().relativePosition + 1 / 3f,
                 ),
             )
             slotList2.add(
-                generateLastSlot(
+                Slot(
                     slotList2.last().id + 1,
+                    combination[1],
                     slotList2.last().relativePosition + 1 / 3f,
                 ),
             )
             slotList3.add(
-                generateLastSlot(
+                Slot(
                     slotList3.last().id + 1,
+                    combination[2],
                     slotList3.last().relativePosition + 1 / 3f,
                 ),
             )
@@ -194,21 +214,6 @@ class Game2ViewModel : ViewModel() {
         _slot1LiveData.value = slotList1
         _slot2LiveData.value = slotList2
         _slot3LiveData.value = slotList3
-    }
-
-    private fun generateLastSlot(id: Int, relativePosition: Float): Slot {
-        val drawableRes = when ((0..129).random()) {
-            in 0..29 -> values[0]
-            in 30..54 -> values[1]
-            in 55..74 -> values[2]
-            in 75..99 -> values[3]
-            else -> values[4]
-        }
-        return Slot(
-            id,
-            drawableRes,
-            relativePosition,
-        )
     }
 
     internal enum class GameState {

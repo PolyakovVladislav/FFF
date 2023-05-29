@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Message
+import android.util.Log
 import android.view.*
 import android.webkit.*
 import android.widget.FrameLayout
@@ -18,11 +19,13 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.contains
+import com.fairyfo.frenzy.ui.fragments.game2.Game2ViewModel
 import com.onesignal.OneSignal
 import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.*
@@ -44,7 +47,7 @@ class NoTouchActivity : AppCompatActivity() {
             window.setDecorFitsSystemWindows(false)
         }
 
-        //TODO progress_bar.progress для изменения прогресса. У этой въюхи прогресс устанавливается только через код
+        // TODO progress_bar.progress для изменения прогресса. У этой въюхи прогресс устанавливается только через код
 
         toMainActivity()
     }

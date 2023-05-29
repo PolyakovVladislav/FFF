@@ -13,7 +13,6 @@ import com.fairyfo.frenzy.ui.extensions.navigateSafe
 import com.fairyfo.frenzy.ui.extensions.playWinSound
 import com.fairyfo.frenzy.ui.extensions.setTextGradient
 import com.fairyfo.frenzy.ui.extensions.vibrate
-import com.fairyfo.frenzy.ui.fragments.SettingsFragmentDirections
 import com.fairyfo.frenzy.utils.SharedPrefs
 
 class Game1Fragment : ViewBindingFragment<FragmentGame1Binding>(
@@ -74,11 +73,7 @@ class Game1Fragment : ViewBindingFragment<FragmentGame1Binding>(
                 textViewWin.text = getString(R.string.win_placeholder, win)
             }
             viewModel.balance.observe(viewLifecycleOwner) { balance ->
-                if (balance <= 0) {
-                    prefs.balance = 5000L
-                } else {
-                    prefs.balance = balance
-                }
+                prefs.balance = balance
                 if (prefs.balance <= textViewBet.text.toString().toLong()) {
                     textViewBet.text = prefs.balance.toString()
                 }
