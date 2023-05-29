@@ -159,7 +159,7 @@
         <com.fairyfo.frenzy.ui.view.MinerView
             android:id="@+id/miner_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </com.sinaseyfi.advancedcardview.AdvancedCardView>
 
@@ -171,8 +171,11 @@
         android:background="@drawable/bg_button_gradient_pink"
         android:fontFamily="@font/moul"
         android:paddingHorizontal="40dp"
+        android:paddingVertical="8dp"
         android:text="@string/spin"
+        android:textAllCaps="false"
         app:backgroundTint="@null"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

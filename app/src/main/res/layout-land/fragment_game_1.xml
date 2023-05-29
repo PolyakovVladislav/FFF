@@ -18,10 +18,10 @@
         android:id="@+id/image_view_back"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:soundEffectsEnabled="true"
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
         android:padding="8dp"
+        android:soundEffectsEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
@@ -150,8 +150,8 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_gravity="center_vertical"
-                android:soundEffectsEnabled="true"
                 android:padding="4dp"
+                android:soundEffectsEnabled="true"
                 app:srcCompat="@drawable/ic_plus_game1" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.sinaseyfi.advancedcardview.AdvancedCardView>
@@ -163,8 +163,11 @@
         android:background="@drawable/bg_button_gradient_pink"
         android:fontFamily="@font/moul"
         android:paddingHorizontal="40dp"
+        android:paddingVertical="8dp"
         android:text="@string/play"
+        android:textAllCaps="false"
         app:backgroundTint="@null"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline_main"
