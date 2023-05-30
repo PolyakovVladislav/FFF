@@ -26,6 +26,7 @@ import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.contains
 import com.fairyfo.frenzy.ui.fragments.game2.Game2ViewModel
+import com.fairyfo.frenzy.ui.view.FrenzyProgressBar
 import com.onesignal.OneSignal
 import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.*
@@ -47,9 +48,16 @@ class NoTouchActivity : AppCompatActivity() {
             window.setDecorFitsSystemWindows(false)
         }
 
-        // TODO progress_bar.progress для изменения прогресса. У этой въюхи прогресс устанавливается только через код
-
-        toMainActivity()
+        val progressBar = findViewById<FrenzyProgressBar>(R.id.progress_bar)
+        progressBar.clicksEnabled = false
+        uiScope.launch {
+            progressBar.progress = 0
+            do {
+                delay(300)
+                progressBar.progress += 100 / 8
+            } while (progressBar.progress < 100)
+            toMainActivity()
+        }
     }
 
     override fun onDestroy() {

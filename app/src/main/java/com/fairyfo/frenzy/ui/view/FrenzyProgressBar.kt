@@ -21,15 +21,24 @@ class FrenzyProgressBar @JvmOverloads constructor(
     }
     private var changeListener: ((Int) -> Unit)? = null
 
+    var clicksEnabled = true
+
     init {
         binding.root.children.forEachIndexed { i, view ->
             (view as AppCompatImageView).setOnClickListener {
-                if (i == 0) {
-                    progress = 0
-                } else if (i == binding.root.children.count()) {
-                    progress = 100
-                } else {
-                    progress = (100f / 7 * i).toInt()
+                if (clicksEnabled.not()) {
+                    return@setOnClickListener
+                }
+                progress = when (i) {
+                    0 -> {
+                        0
+                    }
+                    binding.root.children.count() -> {
+                        100
+                    }
+                    else -> {
+                        (100f / 7 * i).toInt()
+                    }
                 }
             }
         }
