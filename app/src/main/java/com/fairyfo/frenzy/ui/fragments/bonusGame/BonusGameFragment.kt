@@ -69,7 +69,10 @@ class BonusGameFragment : ViewBindingFragment<FragmentBonusGameBinding>(
             viewModel.game.observe(viewLifecycleOwner) { miner ->
                 minerView.setGame(miner)
                 if (miner.gameState == Miner.GameState.Finished) {
+                    buttonSpin.setText(R.string.spin)
                     vibrate(800)
+                } else {
+                    buttonSpin.setText(R.string.claim)
                 }
             }
             viewModel.win.observe(viewLifecycleOwner) { win ->

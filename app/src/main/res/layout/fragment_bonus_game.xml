@@ -165,12 +165,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_spin"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:background="@drawable/bg_button_gradient_pink"
         android:fontFamily="@font/moul"
-        android:paddingHorizontal="40dp"
         android:paddingVertical="8dp"
         android:text="@string/spin"
         android:textAllCaps="false"
